@@ -1,0 +1,35 @@
+/* ===ETIQUETAS GENERAL===  */
+body{
+
+	background-image: url('img/texture.png');
+	
+
+}
+.content-form{
+	background-color: white;
+	height: :auto;
+}
+.logo{
+	width:30%;
+	min-width: 150px;
+	margin-left:33%;
+	margin-right: 33%;
+}
+.divlogo{
+	margin-left:25%;
+	margin-right:25%;
+	margin-top:5%;
+}
+.content-log-form{
+	display: hidden;
+	margin-left:8%;
+	margin-right: 8%;
+}
+.content-sign-form{
+	margin-left:8%;
+	margin-right: 8%;
+}
+.access{
+	margin-left:40%;
+	margin-right: 40%;
+}
