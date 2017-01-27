@@ -106,17 +106,17 @@
 		</div><!--btn group-->
 			<!-- FORMULARIO DE LOGUEO-->
 			<div class="content-log-form" id="sig">
-				<form  name="fr_log" class="form-horizontal" role="form" action ="#" method="POST">
+				<form  name="fr_log" class="form-horizontal" role="form" action ="php/proc/login.proc.php" method="POST">
 					  <div class="form-group">
 					   		<label for="email" class="col-lg-2 control-label" id=>Email</label>
 					  		  <div class="col-lg-7">
-					    		  <input type="email" class="form-control" id="l_mail" placeholder="Email">
+					    		  <input type="email" class="form-control" id="l_mail" name="l_mail" placeholder="Email">
 					    	  </div>
 					  </div>
 					  <div class="form-group">
 					    	<label for="s_pass" class="col-lg-2 control-label">Contraseña</label>
 					   			 <div class="col-lg-7">
-					  			    <input type="password" class="form-control" id="l_password" placeholder="Contraseña">
+					  			    <input type="password" class="form-control" id="l_password" name="l_password" placeholder="Contraseña">
 					    		</div>
 					  </div>
 					  <div class="access">
@@ -156,7 +156,7 @@
 					  <div class="form-group">
 					   		<label for="email" class="col-lg-2 control-label">Email</label>
 					  		  <div class="col-lg-7">
-					    		  <input type="email" class="form-control" id="s_email" placeholder="Email">
+					    		  <input type="email" class="form-control" id="s_email" name="s_email" placeholder="Email">
 					    	  </div>
 					  </div>
 				<!--End Correo -->
