@@ -3,8 +3,8 @@
     //importamos la conexión
     require_once("proc/conexion.php");
     if(!isset($_SESSION['usu_id'])){
-       // header("location:../index.php");
-        echo $_SESSION['usu_id'];
+        header("location:../index.php");
+        //echo $_SESSION['usu_id'];
     }
            
 
@@ -53,9 +53,11 @@
                 <img src="../css/img/logo.png" class="prin_logo img-rounded"/>
             </div><!--end log-->
             <div class="col-md-8">
-                <button class="btn btn-info" onclick="showsig();">Modificar mis datos</button>
-                <button class="btn btn-info" onclick="showsig();">Ver contactos</button>
-                <button class="btn btn-info" onclick="showsig();">Añadir contactos</button>
+            <?php 
+             echo  "<a href='modificar_user.php'><button class='btn btn-info'>Modificar mis datos</button></a>";
+             echo " <button class='btn btn-info'>Añadir contactos</button>";
+             echo " <a href='proc/logout.proc.php'> <button class='btn btn-danger'>Logout</button></a>";
+            ?>
             </div><!-- end buttons-->
     <div class="content-form col-md-10">
         <div class="showuser col-md-8">

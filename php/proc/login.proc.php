@@ -2,7 +2,7 @@
 	extract($_POST);
 	require_once('conexion.php');
 	//Consulta de busqueda del usuario
-	$con="SELECT * FROM `tbl_usuario` WHERE `correo_usuario` LIKE '".$l_mail."' AND `contraseña_usuario` LIKE '".$l_password."' ";
+	$con="SELECT * FROM `tbl_usuario` WHERE `correo_usuario` LIKE '".$l_mail."' AND `contrasena_usuario` LIKE '".$l_password."' ";
 	//echo $con;die;
 	//Lanzamos la consulta a la BD
 	$result	=	mysqli_query($conexion,$con);
