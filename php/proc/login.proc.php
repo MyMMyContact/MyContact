@@ -13,17 +13,18 @@
 	{
 		//Iniciamos sessión para las variables de sesion
 		session_start();
-		while ($fila = mysqli_fetch_row($result)) 
+		while ($fila = mysqli_fetch_array($result)) 
 		{
 			//Asignamos la variable de session "usu_id" al ID del usuario
-			$_SESSION['usu_id']	=	$fila[0];
+			$_SESSION['usu_id']	=	$fila['id_usuario'];
+			header("location:../principal.php");
 		}
 			
 	}
 	//Si no nos devuelve registros, significa que no existe en la base de datos
 	else
 	{
-		header("location: ../index.php?nolog=1");
+		header("location: ../../index.php?nolog=1");
 		//echo $con;
 	}
 ?>

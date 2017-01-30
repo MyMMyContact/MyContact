@@ -127,12 +127,12 @@
 		</div><!--END CONTENT LOG FORM-->
 		<!--FORMULARIO DE REGISTRO-->
 			<div class="content-sig-form" id="reg">
-				<form name="fr_sig" class="form-horizontal" role="form" action="#" method="POST">
+				<form name="fr_sig" class="form-horizontal" role="form" action="php/proc/register.proc.php" method="POST">
 				<!--nombre -->
 				 <div class="form-group">
 					   		<label for="ename" class="col-lg-2 control-label">Nombre</label>
 					  		  <div class="col-lg-7">
-					    		  <input type="text" class="form-control" id="s_name" placeholder="Introduzca su nombre">*
+					    		  <input type="text" class="form-control" id="s_name" name="s_name" placeholder="Introduzca su nombre">*
 					    	  </div>
 					  </div>
 				<!-- end nombre -->
@@ -140,7 +140,7 @@
 				 <div class="form-group">
 					   		<label for="elast1" class="col-lg-2 control-label">Primer apellido</label>
 					  		  <div class="col-lg-7">
-					    		  <input type="text" class="form-control" id="s_lastname1" placeholder="Introduzca su primer apellido">*
+					    		  <input type="text" class="form-control" id="s_lastname1" name="s_lastname1" placeholder="Introduzca su primer apellido">*
 					    	  </div>
 					  </div>
 				<!-- end Apellido1 -->
@@ -148,7 +148,7 @@
 				 <div class="form-group">
 					   		<label for="elast2" class="col-lg-2 control-label">Segundo apellido</label>
 					  		  <div class="col-lg-7">
-					    		  <input type="text" class="form-control" id="s_lastname2" placeholder="Introduzca su segundo apellido">
+					    		  <input type="text" class="form-control" id="s_lastname2" name="s_lastname2" placeholder="Introduzca su segundo apellido">
 					    	  </div>
 					  </div>
 				<!-- end Apellido2 -->
@@ -164,7 +164,7 @@
 					  <div class="form-group">
 					    	<label for="pass" class="col-lg-2 control-label">Contraseña</label>
 					   			 <div class="col-lg-7">
-					  			    <input type="password" class="form-control" id="s_password" placeholder="Contraseña">
+					  			    <input type="password" class="form-control" id="s_password" name="s_password" placeholder="Contraseña">
 					    		</div>
 					  </div>
 				<!--End contraseña -->
@@ -186,7 +186,7 @@
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="assets/js/bootstrap.min.js"></script>
+    <!--<script src="assets/js/bootstrap.min.js"></script>-->
     <script type="text/javascript">
     	document.onload = showsig();
     </script>

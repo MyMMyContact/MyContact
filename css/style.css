@@ -16,6 +16,13 @@ body{
 	margin-left:33%;
 	margin-right: 33%;
 }
+.logcol{
+	float:left;
+	background-color:red;
+}
+.prin_logo{
+	width:35%;
+}
 .divlogo{
 	margin-left:25%;
 	margin-right:25%;
