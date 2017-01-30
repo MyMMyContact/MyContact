@@ -28,7 +28,7 @@
             <div class="col-md-8">
                 <button class="btn btn-info" onclick="showsig();">Modificar mis datos</button>
                 <button class="btn btn-info" onclick="showsig();">Ver contactos</button>
-                <button class="btn btn-info" onclick="showsig();">Añadir contactos</button>
+                <button class="btn btn-info" onclick="showsig();">Añadir contactos<a href="anadir.php"></button>
             </div><!-- end buttons-->
     <div class="content-form col-md-10">
         <div class="showuser col-md-8">
