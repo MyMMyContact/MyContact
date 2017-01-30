@@ -25,6 +25,6 @@
 	else
 	{
 		header("location: ../../index.php?nolog=1");
-		//echo $con;
+		
 	}
 ?>

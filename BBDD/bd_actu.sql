@@ -1,32 +1,3 @@
--- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
---
--- Servidor: 127.0.0.1
--- Tiempo de generación: 30-01-2017 a las 18:03:01
--- Versión del servidor: 10.1.9-MariaDB
--- Versión de PHP: 5.6.15
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
---
--- Base de datos: `bd_mycontacts`
---
-CREATE DATABASE IF NOT EXISTS `bd_mycontacts` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `bd_mycontacts`;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `tbl_contacto`
---
 
 CREATE TABLE `tbl_contacto` (
   `id_contacto` int(5) NOT NULL,
@@ -61,17 +32,17 @@ CREATE TABLE `tbl_usuario` (
   `apellido2_usuario` varchar(20) DEFAULT NULL,
   `fechaAlta_usuario` date NOT NULL,
   `correo_usuario` varchar(40) NOT NULL,
-  `contraseña_usuario` varchar(20) NOT NULL
+  `contrasena_usuario` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `tbl_usuario`
 --
 
-INSERT INTO `tbl_usuario` (`id_usuario`, `nombre_usuario`, `apellido1_usuario`, `apellido2_usuario`, `fechaAlta_usuario`, `correo_usuario`, `contraseña_usuario`) VALUES
-(1, 'pruena', 'pruena', 'pruena', '2017-01-27', 'prueba@prueba.com', 'prueba'),
+INSERT INTO `tbl_usuario` (`id_usuario`, `nombre_usuario`, `apellido1_usuario`, `apellido2_usuario`, `fechaAlta_usuario`, `correo_usuario`, `contrasena_usuario`) VALUES
+(1, 'prueba', 'prueba', 'prueba', '2017-01-27', 'prueb2a@prueba.com', 'prueba2'),
 (2, 'prueba2', 'prueba2', 'prueba2', '2017-01-11', 'prueba2@prueba2.com', 'prueba2'),
-(3, 'asd', 'asd', 'asd', '2017-01-29', 'asd@asd.com', '1234');
+(3, 'asd', 'asd', 'asd', '2017-01-29', 'asd@asd.com', '12345');
 
 --
 -- Índices para tablas volcadas
@@ -114,6 +85,3 @@ ALTER TABLE `tbl_usuario`
 ALTER TABLE `tbl_contacto`
   ADD CONSTRAINT `contactus` FOREIGN KEY (`id_usuario`) REFERENCES `tbl_usuario` (`id_usuario`);
 
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
