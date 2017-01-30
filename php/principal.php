@@ -55,7 +55,9 @@
             <div class="col-md-8">
             <?php 
              echo  "<a href='modificar_user.php'><button class='btn btn-info'>Modificar mis datos</button></a>";
-             echo " <button class='btn btn-info'>Añadir contactos</button>";
+             echo " <a href='anadir_contacto.php'><button class='btn btn-info'>Añadir contactos</button></a>";
+
+
              echo " <a href='proc/logout.proc.php'> <button class='btn btn-danger'>Logout</button></a>";
             ?>
             </div><!-- end buttons-->
