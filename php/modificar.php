@@ -21,39 +21,44 @@
 </head>
 <body>
     
-        <div class="row">
-            <div class="logcol col-md-2">
+        <div class="header-container row col-md-10" >
+            <div class="logcol col-md-1">
                 <img src="../css/img/logo.png" class="prin_logo img-rounded"/>
             </div><!--end log-->
-            <div class="col-md-8">
-                <button class="btn btn-info" onclick="showsig();">Modificar mis datos</button>
-                <button class="btn btn-info" onclick="showsig();">Ver contactos</button>
-                <button class="btn btn-info" onclick="showsig();">Añadir contactos<a href="anadir.php"></button>
+            <div class="col-md-10 buttons">
+                <button class="btn btn-info">Modificar mis datos</button>
+                <button class="btn btn-info">Añadir contactos</button>
+               <a href="proc/logout.proc.php" onclick="return confirm('¿Está seguro que desea cerrar sesión?');"> <button class="btn btn-danger logout">Logout</button></a>
             </div><!-- end buttons-->
+        </div>
     <div class="content-form col-md-10">
         <div class="showuser col-md-8">
            <form name="fr_modify" action="proc/modificar.proc.php" method="GET">
+           <table class="table table-striped">
             <?php
                  //preparamos la consulta para sacar información de la tabla de contactos
                   $contact_con="SELECT * FROM `tbl_contacto` WHERE `id_contacto` = ".$contact_id."";
-                  echo $contact_con;
+                  //echo $contact_con;
                  // echo $contact_con;
                   $display_contact=mysqli_query($conexion,$contact_con);
                     while($print_contact   =   mysqli_fetch_array($display_contact))
                          {
-                            echo "<div>Nombre: <input type='text' id='contact_name' name='contact_name' value= '".$print_contact['nombre_contacto']."'></div>";
-                            echo "<div> Apellido1: <input type='text' id='contact_lastname1' name='contact_lastname1' value= '".$print_contact['apellido1_contacto']."'></div>";
-                            echo "<div>Apellido2: <input type='text' id='contact_lastname2' name='contact_lastname2' value= '".$print_contact['apellido2_contacto']."'></div>";
-                            echo "<div>Correo: <input type='mail' id='mail' name='mail' value= '".$print_contact['correo_contacto']."'></div>";
-                            echo "<div>Telefono: <input type='text' id='phone' name='phone' value= '".$print_contact['telefono1_contacto']."'></div>";
-                            echo "<div>Telefono: <input type='text' id='phone2' name='phone2' value= '".$print_contact['telefono2_contacto']."'></div>";
-                            echo "<div>Ubicación1:<input type='text' id='location1' name='location1' value= '".$print_contact['ubicacion1_contacto']."'></div>";
-                            echo "<div>Ubicación2:<input type='text' id='location2' name='location2' value= '".$print_contact['ubicacion2_contacto']."'></div>";
+                            echo "<tr><td>Nombre</td><td>  <input type='text' id='contact_name' class='form-control' name='contact_name' value= '".$print_contact['nombre_contacto']."'></td></tr>";
+                            echo "<tr><td>Apellido1</td><td>  <input type='text' id='contact_lastname1'  class='form-control' name='contact_lastname1' value= '".$print_contact['apellido1_contacto']."'></td></tr>";
+                            echo "<tr><td>Apellido2</td><td>  <input type='text' id='contact_lastname2'  class='form-control' name='contact_lastname2' value= '".$print_contact['apellido2_contacto']."'></td></tr>";
+                            echo "<tr><td>Correo</td><td>  <input type='mail' id='mail' name='mail'  class='form-control' value= '".$print_contact['correo_contacto']."'></td></tr>";
+                            echo "<tr><td>Telefono</td><td>  <input type='text' id='phone'  class='form-control' name='phone' value= '".$print_contact['telefono1_contacto']."'></td></tr>";
+                            echo "<tr><td>Telefono</td><td>  <input type='text' id='phone2'  class='form-control' name='phone2' value= '".$print_contact['telefono2_contacto']."'></td></tr>";
+                            echo "<tr><td>Ubicación1</td><td> <input type='text' id='location1'  class='form-control' name='location1' value= '".$print_contact['ubicacion1_contacto']."'></td></tr>";
+                            echo "<tr><td>Ubicación2</td><td> <input type='text' id='location2'  class='form-control' name='location2' value= '".$print_contact['ubicacion2_contacto']."'></td></tr>";
                             echo "<input type='text' name='con_id' value='".$contact_id."' style='display: none;'/>";
                          }
             ?>
-            <input type="submit" class="btn btn-info" value="enviar"/>
-            
+             <tr><td><input type="submit" class="btn btn-info" value="enviar"/></td></tr>
+            </form>
+           
+           <?php echo "<tr><td><a class='btn btn-danger' href='proc/del_contact.proc.php?id_con=".$contact_id."'>eliminar</a></td></tr>";?>
+           </table>
         </div><!-- end show user>
     </div><!-- end container -->
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
