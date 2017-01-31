@@ -18,10 +18,11 @@ body{
 }
 .logcol{
 	float:left;
-	background-color:red;
+	
 }
 .prin_logo{
-	width:35%;
+	width:100%;
+	max-width: 150px;
 }
 .divlogo{
 	margin-left:25%;
@@ -40,4 +41,18 @@ body{
 .access{
 	margin-left:40%;
 	margin-right: 40%;
+}
+.header-container{
+	background-color: white;
+	margin-left: 8%;
+	margin-right: 8%;
+	margin-top: 3%;
+	margin-bottom: 1%;
+}
+.logout{
+	float:right;
+
+}
+.buttons{
+	margin-left:1%;
 }
