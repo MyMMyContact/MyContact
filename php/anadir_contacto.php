@@ -35,17 +35,36 @@
                 error+='el correo no puede estar vacio \n';
                  document.getElementById('contact_mail').style.borderColor="red";
             }
+            else{
+               emailRegex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
+               if (emailRegex.test(document.getElementById('contact_mail').value))
+               {
+
+               }else
+                  {
+                     error+='el correo no es correcto \n';
+                  }
+
+            }
             if(document.getElementById('contact_phone').value==""){
                 error+='el teléfono1 no puede estar vacio \n';
                 document.getElementById('contact_phone').style.borderColor="red";
             }
-            if(document.getElementById('contact_location').value==""){
-                error+='La localización es obligatoria \n';
-                document.getElementById('contact_location').style.borderColor="red";
+            else{
+              if(isNaN(document.getElementById('contact_phone').value)){
+                error+='el teléfono1 tiene que ser un número \n';
+                 document.getElementById('contact_phone').style.borderColor="red";
+
+              }
+             
             }
-            if(document.getElementById('contact_location2').value==""){
-                error+='La segunda localización es obligatoria \n'
-                document.getElementById('contact_location2').style.borderColor="red";
+            if(document.getElementById('contact_phone2').value!=""){
+               
+              if(isNaN(document.getElementById('contact_phone2').value)){
+                error+='el teléfono2 tiene que ser un número';
+                 document.getElementById('contact_phone2').style.borderColor="red";
+              }
+              
             }
            if(error!=''){
             alert(error);
@@ -57,18 +76,6 @@
         }
 
     </script>
-        <!--<script type="text/javascript">
-            function initMap()
-            {
-              // Create a map object and specify the DOM element for display.
-              var map = new google.maps.Map(document.getElementById('map'), {
-              center: {lat: -34.397, lng: 150.644},
-               scrollwheel: false,
-                zoom: 8
-               });
-             }
-
-        </script>-->
         <script type="text/javascript">
             //definimos las variables
             var marker;          //variable del marcador
@@ -106,7 +113,7 @@
                   //Creamos un nuevo objeto mapa
                   var map = new google.maps.Map(document.getElementById('map'),
                   {
-                    zoom: 13,
+                    zoom: 20,
                     center:new google.maps.LatLng(coords.lat,coords.lng),
 
                   });
@@ -166,15 +173,16 @@
 </head>
 <body>
     
-        <div class="row">
-            <div class="logcol col-md-2">
+        <div class="header-container row col-md-10 ">
+            <div class="logcol col-md-1">
                 <img src="../css/img/logo.png" class="prin_logo img-rounded"/>
             </div><!--end log-->
             <div class="col-md-8">
+               <a href='principal.php'><button class='btn btn-info'>Principal</button></a>
                <a href='modificar_user.php'><button class="btn btn-info">Modificar mis datos</button></a>
                 <button class="btn btn-info disabled">Añadir contactos</button>
                 <a href="proc/logout.proc.php"><button class="btn btn-danger logout">Logout</button></a>
-                
+          </div>
             </div><!-- end buttons-->
         </div>
     <div class="content-form col-md-10">
@@ -185,10 +193,10 @@
             <tr><td>Apellido1</td><td> <input type='text' id='contact_lastname1' class='form-control' name='contact_lastname1'>*</td></tr>
             <tr><td>Apellido2</td><td> <input type='text' id='contact_lastname2' class='form-control' name='contact_lastname2'></td></tr>
             <tr><td>Correo:</td><td> <input type='text' id='contact_mail' class='form-control' name='contact_mail'>*</td></tr>
-            <tr><td>Telefono1</td><td> <input type='text' id='contact_phone' class='form-control' name='contact_phone'></td></tr>
+            <tr><td>Telefono1</td><td> <input type='text' id='contact_phone' class='form-control' name='contact_phone'>*</td></tr>
             <tr><td>Telefono2</td><td> <input type='text' id='contact_phone2' class='form-control' name='contact_phone2'></td></tr>
-            <tr><td>Ubicación1</td><td> <input type='text' id='contact_location' class='form-control' name='contact_location'></td></tr>
-            <tr><td>Ubicación2</td><td> <input type='text' id='contact_location2' class='form-control' name='contact_location2'></td></tr>
+            <tr><td>Ubicación1</td><td> <input type='text' id='contact_location' class='form-control' name='contact_location'>*</td></tr>
+            <tr><td>Ubicación2</td><td> <input type='text' id='contact_location2' class='form-control' name='contact_location2'>*</td></tr>
 
           </table>
           <input type="submit" class="btn btn-info" value="enviar" onclick="return validar()"/>

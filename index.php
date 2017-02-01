@@ -13,10 +13,16 @@
     	function showsig(){
     		document.getElementById("sig").style.display="block";
     		document.getElementById("reg").style.display="none";
+    		document.getElementById("ins").classList.remove('btn-info');
+    		document.getElementById("go").classList.remove('btn-link');
+    		document.getElementById("go").classList.add('btn-info');
     	}
     	function showreg(){
     		document.getElementById("sig").style.display="none";
     		document.getElementById("reg").style.display="block";
+    		document.getElementById("go").classList.remove('btn-info');
+    		document.getElementById("ins").classList.remove('btn-link');
+    		document.getElementById("ins").classList.add('btn-info');
     	}
     //Funciones de validación
     	//validacion de login
@@ -64,6 +70,19 @@
 		        error+="Error, el correo no puede estar vacio \n";
 		        document.getElementById("s_email").style.borderColor="red";
 		      }
+		      else
+		   {
+               emailRegex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
+               if (emailRegex.test(document.getElementById('s_email').value))
+               {
+
+               }
+               else
+                  {
+                     error+='el correo no es correcto \n';
+                  }
+
+            }
 
 		       if(document.getElementById("s_password").value=="")
 		      {
@@ -95,15 +114,16 @@
 
 	<div class="content-form col-lg-10">
 
-		<div class="btn-group btn-group-justified">
-				<div class="signin col-lg-5">
-					<button class="btn btn-info btn-block" onclick="showsig();">Acceder</button>
-				</div>
-			
-				<div class="login col-lg-5">
-					<button class="btn btn-info btn-block"onclick="showreg();">Registro</button>
-				</div>
-		</div><!--btn group-->
+		
+
+			<ul class="nav nav-tabs">
+			  <li class="active" onclick="showsig();"><buton id="go" class="btn  btn-link">Acceder</buton></li>
+			  <li onclick="showreg();"><buton id="ins" class="btn btn btn-link">Registro</buton></li>
+			  
+			</ul>
+
+
+
 			<!-- FORMULARIO DE LOGUEO-->
 			<div class="content-log-form" id="sig">
 				<form  name="fr_log" class="form-horizontal" role="form" action ="php/proc/login.proc.php" method="POST">

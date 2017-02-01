@@ -1,5 +1,5 @@
 <?php 
-  
+   
 	
 	$conexion = new mysqli("localhost", "root", "", "bd_mycontacts");
 	if (!$conexion) {
