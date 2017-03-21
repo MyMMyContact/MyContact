@@ -3,8 +3,8 @@
     //importamos la conexión
     require_once("proc/conexion.php");
     if(!isset($_SESSION['usu_id'])){
-       // header("location:../index.php");
-        echo $_SESSION['usu_id'];
+       header("location:../index.php");
+       // echo $_SESSION['usu_id'];
     }
     extract($_GET);
 ?>
@@ -18,16 +18,84 @@
     
     <!-- CUSTOM CSS  -->
     <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <script type="text/javascript">
+         function validar(){
+            var error= "";
+            if(document.getElementById('contact_name').value==""){
+                error+='El nombre no puede estar vacio \n';
+                document.getElementById('contact_name').style.borderColor="red";
+               
+            }
+            if(document.getElementById('contact_lastname1').value==""){
+                error+='el primer apellido no puede estar vacio \n';
+                document.getElementById('contact_lastname1').style.borderColor="red";
+            }
+            if(document.getElementById('mail').value==""){
+                error+='el correo no puede estar vacio \n';
+                 document.getElementById('mail').style.borderColor="red";
+            }
+            else{
+               emailRegex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
+               if (emailRegex.test(document.getElementById('mail').value))
+               {
+
+               }else
+                  {
+                     error+='el correo no es correcto \n';
+                  }
+
+            }
+            if(document.getElementById('phone').value==""){
+                error+='el teléfono1 no puede estar vacio \n';
+                document.getElementById('phone').style.borderColor="red";
+            }
+            else{
+              if(isNaN(document.getElementById('phone').value)){
+                error+='el teléfono1 tiene que ser un número \n';
+                 document.getElementById('phone').style.borderColor="red";
+
+              }
+             
+            }
+            if(document.getElementById('phone2').value!=""){
+               
+              if(isNaN(document.getElementById('phone2').value)){
+                error+='el teléfono2 tiene que ser un número';
+                 document.getElementById('phone2').style.borderColor="red";
+              }
+             
+            }
+            if(document.getElementById('location1').value==""){
+                error+='La localización es obligatoria \n';
+                document.getElementById('location1').style.borderColor="red";
+            }
+            if(document.getElementById('location2').value==""){
+                error+='La segunda localización es obligatoria \n'
+                document.getElementById('location2').style.borderColor="red";
+            }
+            
+           if(error!=''){
+            alert(error);
+            return false;
+           }
+           else{
+            return true;
+           }
+        }
+       		
+      
+    </script>
 </head>
 <body>
-    
+    	
         <div class="header-container row col-md-10" >
             <div class="logcol col-md-1">
                 <img src="../css/img/logo.png" class="prin_logo img-rounded"/>
             </div><!--end log-->
             <div class="col-md-10 buttons">
-                <button class="btn btn-info">Modificar mis datos</button>
-                <button class="btn btn-info">Añadir contactos</button>
+                 <a href='principal.php'><button class='btn btn-info'>Principal</button></a>
+                <a href="modificar_user.php"><button class="btn btn-info">Modificar mis datos</button></a>
+                <a href="anadir_contacto.php"><button class="btn btn-info">Añadir contactos</button></a>
                <a href="proc/logout.proc.php" onclick="return confirm('¿Está seguro que desea cerrar sesión?');"> <button class="btn btn-danger logout">Logout</button></a>
             </div><!-- end buttons-->
         </div>
@@ -54,12 +122,14 @@
                             echo "<input type='text' name='con_id' value='".$contact_id."' style='display: none;'/>";
                          }
             ?>
-             <tr><td><input type="submit" class="btn btn-info" value="enviar"/></td></tr>
+             <tr><td><input type="submit" class="btn btn-info" onClick="return validar();" value="enviar"/></td></tr>
             </form>
            
-           <?php echo "<tr><td><a class='btn btn-danger' href='proc/del_contact.proc.php?id_con=".$contact_id."'>eliminar</a></td></tr>";?>
+           <?php echo "<tr><td><a class='btn btn-danger'onclick=\"return confirm('¿Está seguro que deseas eliminar el registro?');\" href='proc/del_contact.proc.php?id_con=".$contact_id."'>eliminar</a></td></tr>";?>
            </table>
-        </div><!-- end show user>
+        </div><!-- end show user-->
+        
+        
     </div><!-- end container -->
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

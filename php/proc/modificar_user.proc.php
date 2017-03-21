@@ -1,5 +1,9 @@
 <?php 
 session_start();
+if(!isset($_SESSION['usu_id'])){
+	        header("location:../index.php");
+	        //echo $_SESSION['usu_id'];
+	    }
 extract($_GET);
 	require_once('conexion.php');
 	

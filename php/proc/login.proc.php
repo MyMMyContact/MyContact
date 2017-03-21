@@ -1,4 +1,10 @@
 <?php
+	 session_start();
+	    //importamos la conexión
+	    if(!isset($_SESSION['usu_id'])){
+	        header("location:../index.php");
+	        //echo $_SESSION['usu_id'];
+	    }
 	extract($_POST);
 	require_once('conexion.php');
 	//Consulta de busqueda del usuario

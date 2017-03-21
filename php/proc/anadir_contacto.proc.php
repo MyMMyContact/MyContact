@@ -1,5 +1,12 @@
 <?php 
 session_start();
+
+    //importamos la conexión
+
+    if(!isset($_SESSION['usu_id'])){
+       // header("location:../index.php");
+        echo $_SESSION['usu_id'];
+    }
 extract($_GET);
 	require_once('conexion.php');
 		//Comprobamos si las variables opcionales, apellido2 y telefono2 existen:

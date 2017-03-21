@@ -1,7 +1,12 @@
 <?php
+	 session_start();
 		require_once("conexion.php");
+		if(!isset($_SESSION['usu_id'])){
+	        header("location:../index.php");
+	        //echo $_SESSION['usu_id'];
+	    }
 		//Iniciamos sesión
-		session_start();
+		//session_start();
 		//Creamos la consulta SQL para eliminar el usuario y sus contactos
 		$del_con="DELETE FROM `tbl_usuario` WHERE `tbl_usuario`.`id_usuario` = ".$_SESSION['usu_id']."";
 		$del_user_con="DELETE FROM `tbl_contacto` WHERE `id_usuario` = ".$_SESSION['usu_id']."";
